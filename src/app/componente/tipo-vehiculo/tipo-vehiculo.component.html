@@ -1,0 +1,18 @@
+
+
+<div class="container">
+  <div class="row">
+
+    <label class="form-group">Tipo Vehiculo: </label>
+    <select class="form-control col-4"  [(ngModel)]="tipoVehiculoSel" (ngModelChange)="getVehiculoPorTipo(tipoVehiculoSel)">
+      <option value="0">--Todos--</option>
+      <option *ngFor="let tipo of lstTipoVehiculo" [value]="tipo.idtipovehiculo">
+        {{tipo.tipovehiculo}}
+      </option>
+    </select>
+  </div>
+
+
+  <app-vehiculos [vehiculos]="lstVehiculos" [idtipovehiculo]="tipoVehiculoSel" *ngIf="lstVehiculos" (onOperacionExitosa)="getVehiculoPorTipo($event)" ></app-vehiculos>
+
+</div>  

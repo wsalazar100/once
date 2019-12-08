@@ -1,0 +1,47 @@
+
+
+<!-- contenido -->
+<div class="col-md-12" *ngIf="vehiculo" >
+    <div class="card card-body">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12" >
+                <form #f="ngForm" ngNativeValidate (ngSubmit)="grabarVehiculo(f)">
+                    
+                    <div class="form-group" >
+                        <label>Tipo Vehiculo</label>
+                        <select (change)="cambioTipo( $event.target.value )" name="idtipovehiculo" class="form-control" required>
+                            <option value="">Seleccione Tipo Vehiculo</option>
+                            <option *ngFor="let tipo of lstTipoVehiculo" [value]="tipo.idtipovehiculo">
+                            {{ tipo.tipovehiculo }}
+                            </option>
+                        </select>
+                    </div>
+
+                                        
+                    <div class="form-group" >
+                            <label>Tipo Transporte </label>
+                            <select (change)="cambioTipo( $event.target.value )" [(ngModel)]="vehiculo.tipoTransporte" name="tipoTransporte" class="form-control" required>
+                                <option value="">Seleccione Tipo Transporte</option>
+                                <option *ngFor="let tipo of lstTipoTransporte" [value]="tipo">
+                                {{ tipo }}
+                                </option>
+                            </select>
+                        </div>
+
+
+                    <div class="form-group" >
+                        <label>Marca</label>
+                        <input [(ngModel)]="vehiculo.marca" name="marca" type="text" class="form-control" placeholder="marca del vehiculo" required>
+                    </div>
+
+                    <div class="form-group" >
+                        <label>Modelo</label>
+                        <input [(ngModel)]="vehiculo.modelo" name="marca" type="text" class="form-control" placeholder="modelo del vehiculo" required>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
